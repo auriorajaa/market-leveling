@@ -1,5 +1,5 @@
 "use client";
-
+import { generateTenantURL } from "@/lib/utils";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +8,8 @@ interface ProductCardProps {
   id: string;
   name: string;
   imageUrl?: string | null;
-  authorUsername: string;
-  authorImageUrl?: string | null;
+  tenantSlug: string;
+  tenantImageUrl?: string | null;
   reviewRating: number;
   reviewCount: number;
   price: number;
@@ -19,63 +19,74 @@ export const ProductCard = ({
   id,
   name,
   imageUrl,
-  authorUsername,
-  authorImageUrl,
+  tenantSlug,
+  tenantImageUrl,
   reviewRating,
   reviewCount,
   price,
 }: ProductCardProps) => {
   return (
-    <Link href={`/products/${id}`}>
-      <div className="hover:border-primary transition-colors border rounded-none bg-white overflow-hidden h-full flex flex-col">
-        <div className="relative aspect-square">
-          <Image
-            alt={name}
-            fill
-            src={imageUrl || "https://placehold.net/400x400.png"}
-            className="object-cover"
-          />
-        </div>
-        <div className="p-4 border-y flex flex-col gap-3 flex-1">
-          <h2 className="text-lg font-medium line-clamp-2 min-h-[3.5rem]">
-            {name}
-          </h2>
-          <div className="flex items-center gap-2" onClick={() => {}}>
-            {authorImageUrl && (
-              <Image
-                alt={authorUsername}
-                src={authorImageUrl}
-                width={16}
-                height={16}
-                className="rounded-full border shrink-0 size-4"
-              />
-            )}
-            <p className="underline font-medium">{authorUsername}</p>
-          </div>
+    <div className="relative hover:border-primary transition-colors border rounded-none bg-white overflow-hidden h-full flex flex-col">
+      <Link
+        href={`/products/${id}`}
+        className="absolute inset-0 z-0"
+        aria-label={name}
+      />
 
-          {reviewCount > 0 && (
-            <div className="flex items-center gap-1">
-              <StarIcon className="size-3.5 fill-black" />
-              <p className="text-sm font-medium">
-                {reviewRating} ({reviewCount})
-              </p>
-            </div>
+      <div className="relative aspect-square pointer-events-none">
+        <Image
+          loading="eager"
+          alt={name}
+          fill
+          src={imageUrl || "https://placehold.net/400x400.png"}
+          className="object-cover"
+        />
+      </div>
+
+      <div className="p-4 border-y flex flex-col gap-3 flex-1">
+        <h2 className="text-lg font-medium line-clamp-2 min-h-[3.5rem] pointer-events-none">
+          {name}
+        </h2>
+
+        <Link
+          href={generateTenantURL(tenantSlug)}
+          className="relative z-10 flex items-center gap-2 w-fit"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {tenantImageUrl && (
+            <Image
+              alt={tenantSlug}
+              src={tenantImageUrl}
+              width={28}
+              height={28}
+              className="rounded-full border object-cover shrink-0 size-7"
+            />
           )}
-        </div>
+          <p className="underline font-medium">{tenantSlug}</p>
+        </Link>
 
-        <div className="p-4">
-          <div className="relative px-2 py-1 border bg-primary w-fit">
-            <p className="font-medium text-white">
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-                maximumFractionDigits: 0,
-              }).format(Number(price))}
+        {reviewCount > 0 && (
+          <div className="flex items-center gap-1 pointer-events-none">
+            <StarIcon className="size-3.5 fill-black" />
+            <p className="text-sm font-medium">
+              {reviewRating} ({reviewCount})
             </p>
           </div>
+        )}
+      </div>
+
+      <div className="p-4 pointer-events-none">
+        <div className="relative px-2 py-1 border bg-primary w-fit">
+          <p className="font-medium text-white">
+            {new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+              maximumFractionDigits: 0,
+            }).format(Number(price))}
+          </p>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

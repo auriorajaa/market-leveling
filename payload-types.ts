@@ -176,7 +176,7 @@ export interface Tenant {
    * This will be the subdomain for your store (example: [slug].leveling.store)
    */
   slug: string;
-  image?: (string | null) | Media;
+  media?: (string | null) | Media;
   stripeAccountId: string;
   /**
    * You cannot create any products to sell until you submit your Stripe Account details
@@ -435,7 +435,7 @@ export interface TagsSelect<T extends boolean = true> {
 export interface TenantsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
-  image?: T;
+  media?: T;
   stripeAccountId?: T;
   tripeDetailsSubmitted?: T;
   updatedAt?: T;

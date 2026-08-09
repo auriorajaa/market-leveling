@@ -27,7 +27,7 @@ export const Tenants: CollectionConfig = {
       },
     },
     {
-      name: "image",
+      name: "media",
       type: "upload",
       relationTo: "media",
     },
