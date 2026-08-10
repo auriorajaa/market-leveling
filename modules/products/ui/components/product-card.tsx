@@ -1,5 +1,5 @@
 "use client";
-import { generateTenantURL } from "@/lib/utils";
+import { formatCurrency, generateTenantURL } from "@/lib/utils";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export const ProductCard = ({
   return (
     <div className="relative hover:border-primary transition-colors border rounded-none bg-white overflow-hidden h-full flex flex-col">
       <Link
-        href={`/products/${id}`}
+        href={`${generateTenantURL(tenantSlug)}/products/${id}`}
         className="absolute inset-0 z-0"
         aria-label={name}
       />
@@ -77,13 +77,7 @@ export const ProductCard = ({
 
       <div className="p-4 pointer-events-none">
         <div className="relative px-2 py-1 border bg-primary w-fit">
-          <p className="font-medium text-white">
-            {new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              maximumFractionDigits: 0,
-            }).format(Number(price))}
-          </p>
+          <p className="font-medium text-white">{formatCurrency(price)}</p>
         </div>
       </div>
     </div>
