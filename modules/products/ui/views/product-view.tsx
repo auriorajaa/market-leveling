@@ -7,9 +7,26 @@ import { formatCurrency, generateTenantURL } from "@/lib/utils";
 import { useTRPC } from "@/trpc/client";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { LinkIcon, StarIcon } from "lucide-react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react/jsx-runtime";
+// import { CartButton } from "../components/cart-button";
+
+const CartButton = dynamic(
+  () => import("../components/cart-button").then((mod) => mod.CartButton),
+  {
+    ssr: false,
+    loading: () => (
+      <Button
+        disabled
+        className="flex-1 bg-primary text-xl size-14 rounded-none"
+      >
+        Add to cart
+      </Button>
+    ),
+  },
+);
 
 interface ProductViewProps {
   productId: string;
@@ -100,9 +117,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
             <div className="border-t lg:border-t-0 lg:border-l h-full">
               <div className="flex flex-col gap-4 p-6">
                 <div className="flex flex-row items-center gap-2">
-                  <Button className="flex-1 bg-primary text-xl size-14  cursor-pointer rounded-none hover:bg-primary hover:underline">
-                    Add to cart
-                  </Button>
+                  <CartButton productId={productId} tenantSlug={tenantSlug} />
                   <Button
                     className="size-14 text-xl cursor-pointer rounded-none"
                     onClick={() => {}}
