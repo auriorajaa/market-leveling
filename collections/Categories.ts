@@ -1,4 +1,3 @@
-import { unique } from "next/dist/build/utils";
 import type { CollectionConfig } from "payload";
 
 export const Categories: CollectionConfig = {
