@@ -90,7 +90,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
 
               <div className="hidden lg:flex px-6 py-4 items-center justify-center">
                 <div className="flex items-center gap-1">
-                  <StarRating rating={2} iconClassName="siz-4" />
+                  <StarRating rating={2} iconClassName="size-4" />
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-medium">Ratings</h3>
                   <div className="flex items-center gap-x-1 font-medium">
-                    <StarIcon className="size-4 fill-black" />
+                    <StarIcon className="size-4 stroke-primary fill-primary" />
                     <p>({5})</p>
                     <p className="text-base">{5} ratings</p>
                   </div>

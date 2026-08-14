@@ -26,6 +26,7 @@ export const ProductCard = ({
   return (
     <div className="relative hover:border-primary transition-colors border rounded-none bg-white overflow-hidden h-full flex flex-col">
       <Link
+        prefetch
         href={`/library/${id}`}
         className="absolute inset-0 z-0"
         aria-label={name}
