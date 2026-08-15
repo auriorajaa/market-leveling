@@ -181,11 +181,14 @@ export interface Tenant {
    */
   slug: string;
   media?: (string | null) | Media;
+  /**
+   * Stripe account ID associated with your store
+   */
   stripeAccountId: string;
   /**
    * You cannot create any products to sell until you submit your Stripe Account details
    */
-  tripeDetailsSubmitted?: boolean | null;
+  stripeDetailsSubmitted?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -242,6 +245,10 @@ export interface Product {
   tags?: (string | Tag)[] | null;
   media?: (string | null) | Media;
   refundPolicy?: ('30-day' | '14-day' | '7-day' | '3-day' | '1-day' | 'no-refunds') | null;
+  /**
+   * Protected content only visible to customers after purchase. You can add product documentation, downloadable files, starting guides, bonus materials or other thing that you want to share with your customers. Also support markdown formatting
+   */
+  content?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -265,6 +272,9 @@ export interface Order {
   name: string;
   user: string | User;
   product: string | Product;
+  /**
+   * Stripe checkout session associated with the order
+   */
   stripeCheckoutSessionId: string;
   updatedAt: string;
   createdAt: string;
@@ -453,6 +463,7 @@ export interface ProductsSelect<T extends boolean = true> {
   tags?: T;
   media?: T;
   refundPolicy?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -475,7 +486,7 @@ export interface TenantsSelect<T extends boolean = true> {
   slug?: T;
   media?: T;
   stripeAccountId?: T;
-  tripeDetailsSubmitted?: T;
+  stripeDetailsSubmitted?: T;
   updatedAt?: T;
   createdAt?: T;
 }
