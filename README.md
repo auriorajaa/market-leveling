@@ -48,32 +48,18 @@ A multi-tenant digital product marketplace built with Next.js, Payload CMS, and 
 
 ## Screenshots
 
-> Place your screenshots in the `screenshots/` directory and update the image paths below.
-
 | Page | Preview |
 |------|---------|
-| **Sign In** | <!-- ![Sign In](screenshots/sign-in.png) --> |
-| **Sign Up** | <!-- ![Sign Up](screenshots/sign-up.png) --> |
-| **Home / Marketplace** | <!-- ![Home](screenshots/home.png) --> |
-| **Product Detail** | <!-- ![Product Detail](screenshots/product-detail.png) --> |
-| **Checkout** | <!-- ![Checkout](screenshots/checkout.png) --> |
-| **Library** | <!-- ![Library](screenshots/library.png) --> |
-| **Library — Product Content & Reviews** | <!-- ![Library Product](screenshots/library-product.png) --> |
-| **Tenant Storefront** | <!-- ![Tenant Storefront](screenshots/tenant-storefront.png) --> |
-| **Payload CMS — Dashboard** | <!-- ![CMS Dashboard](screenshots/cms-dashboard.png) --> |
-| **Payload CMS — Product Editor** | <!-- ![CMS Product Editor](screenshots/cms-product-editor.png) --> |
-| **Payload CMS — Categories** | <!-- ![CMS Categories](screenshots/cms-categories.png) --> |
-
-<!-- Uncomment the images above and replace with your actual screenshots.
-     To use:
-     1. Create a `screenshots/` folder in the project root
-     2. Add your .png or .jpg files there
-     3. Remove the <!-- and --> comment tags around each image line
-     4. Adjust filenames if needed
-
-     Example:
-     | **Sign In** | ![Sign In](screenshots/sign-in.png) |
--->
+| **Sign In** | <img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/34ada2b8-2444-4fae-ae84-8b7ee0cc95b4" /> |
+| **Sign Up** | <img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/d47ab479-0ed3-44d2-bee7-e7ab16678669" />|
+| **Home / Marketplace** | <img width="1920" height="987" alt="image" src="https://github.com/user-attachments/assets/ced7d226-d0ae-4c3e-a8a1-57b7f08ed7b8" />|
+| **Product Detail** | <img width="1920" height="1451" alt="image" src="https://github.com/user-attachments/assets/81efb94f-6a56-43b9-ac1b-783115f83b15" /> <img width="1920" height="1377" alt="image" src="https://github.com/user-attachments/assets/9e75ea64-ef43-4cc9-b52f-b772dbd1f37f" />|
+| **Checkout** | <img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/1f5b6093-05ba-410d-9ef0-1f3b36b5e61c" /> <img width="1920" height="984" alt="image" src="https://github.com/user-attachments/assets/5b7bca34-5917-4a57-a9b1-605cfea2fbc6" />|
+| **Library** | <img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/39c280d4-c662-437a-8ff9-fcc77544d7f7" />|
+| **Library — Product Content & Reviews** | <img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/d64193dc-71e4-4e57-af5a-ec175b166df1" />|
+| **Tenant Storefront** | <img width="1920" height="1380" alt="image" src="https://github.com/user-attachments/assets/f23f9502-b816-40ad-9bda-6c89d176638f" />|
+| **Payload CMS — Dashboard** | <img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/29d36b79-52ec-4439-98fe-90e750ddd88a" />|
+| **Payload CMS — Product Editor** | <img width="1920" height="2673" alt="image" src="https://github.com/user-attachments/assets/5f067209-99c4-494d-b9fb-e93d4fbf451c" />|
 
 ---
 
