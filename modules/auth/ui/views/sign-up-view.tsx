@@ -38,7 +38,7 @@ export const SignUpView = () => {
         await queryClient.invalidateQueries(trpc.auth.session.queryFilter());
         router.push("/");
       },
-    })
+    }),
   );
 
   const form = useForm<z.infer<typeof registerSchema>>({
@@ -104,13 +104,6 @@ export const SignUpView = () => {
                         className="h-10 rounded-none py-5 !text-base sm:!text-lg"
                       />
                     </FormControl>
-                    <FormDescription
-                      className={cn("hidden", showPreview && "block")}
-                    >
-                      Your store will be available at&nbsp;
-                      <strong className="italic">{username}</strong>
-                      .lvling.store
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

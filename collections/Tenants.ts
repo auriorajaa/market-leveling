@@ -29,10 +29,6 @@ export const Tenants: CollectionConfig = {
       access: {
         update: ({ req }) => isSuperAdmin(req.user),
       },
-      admin: {
-        description:
-          "This will be the subdomain for your store (example: [slug].leveling.store)",
-      },
     },
     {
       name: "media",

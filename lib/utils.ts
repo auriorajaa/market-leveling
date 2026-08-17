@@ -6,8 +6,12 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function generateTenantURL(tenantSlug: string) {
-  // Routing for development
-  if (process.env.NODE_ENV === "development") {
+  const isDevelopment = process.env.NODE_ENV === "development";
+  const isSubdomainRoutingEnabled =
+    process.env.NEXT_PUBLIC_ENABLE_SUBDOMAIN_ROUTING === "true";
+
+  // Routing for development or subdomain routing is in disabled
+  if (isDevelopment || !isSubdomainRoutingEnabled) {
     return `${process.env.NEXT_PUBLIC_APP_URL}/tenants/${tenantSlug}`;
   }
 
