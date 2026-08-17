@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+
+export const dynamic = "force-static";
 
 const Page = () => {
-  return (
-    <div>features</div>
-  )
-}
+  return <div>features</div>;
+};
 
-export default Page
+export default Page;
