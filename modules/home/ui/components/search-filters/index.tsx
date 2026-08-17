@@ -6,23 +6,26 @@ import { SearchInput } from "./search-input";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { BreadcrumbNavigation } from "./breadcrumb-navigation";
+import { useProductFilters } from "@/modules/products/hooks/use-product-filters";
 
 export const SearchFilters = () => {
   const trpc = useTRPC();
   const { data } = useSuspenseQuery(trpc.categories.getMany.queryOptions());
 
+  const [filters, setFilters] = useProductFilters();
+
   const params = useParams<{ category?: string; subcategory?: string }>();
 
   const activeCategory = params.category || "all";
   const activeCategoryData = data.find(
-    (category) => category.slug === activeCategory
+    (category) => category.slug === activeCategory,
   );
   const activeCategoryName = activeCategoryData?.name || null;
 
   const activeSubCategory = params.subcategory || undefined;
   const activeSubCategoryName =
     activeCategoryData?.subcategories?.find(
-      (subcategory) => subcategory.slug === activeSubCategory
+      (subcategory) => subcategory.slug === activeSubCategory,
     )?.name || null;
 
   return (
@@ -32,7 +35,10 @@ export const SearchFilters = () => {
         backgroundColor: "#FFF",
       }}
     >
-      <SearchInput />
+      <SearchInput
+        defaultValue={filters.search}
+        onChange={(value) => setFilters({ search: value })}
+      />
       <div className="hidden lg:block">
         <Categories data={data} />
       </div>
