@@ -176,9 +176,6 @@ export interface Tenant {
    * This is the name of your store (example: ABC Store)
    */
   name: string;
-  /**
-   * This will be the subdomain for your store (example: [slug].leveling.store)
-   */
   slug: string;
   media?: (string | null) | Media;
   /**
